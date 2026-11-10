@@ -1,0 +1,397 @@
+
+/* General styling */
+:root {
+    --primary-color: #2563eb;
+    --secondary-color: #1e40af;
+    --background-color: #f8fafc;
+    --card-background: #ffffff;
+    --text-color: #1e293b;
+    --muted-text: #64748b;
+    --border-color: #e2e8f0;
+
+    --spacing-small: 8px;
+    --spacing-medium: 16px;
+    --spacing-large: 32px;
+
+    --border-radius: 12px;
+    --transition-speed: 0.3s;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f7fb;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Header */
+header {
+    background-color: #1e293b;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+header h1 {
+    margin-bottom: 15px;
+}
+
+/* Navigation */
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 8px 12px;
+}
+
+nav a:hover,
+nav a:focus {
+    background-color: #475569;
+    border-radius: 5px;
+}
+
+/* Main content */
+main {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+}
+
+section {
+    background-color: white;
+    padding: 30px;
+    margin-bottom: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+h2 {
+    color: #1e293b;
+    margin-bottom: 15px;
+}
+
+h3 {
+    color: #2563eb;
+    margin-bottom: 10px;
+}
+
+p {
+    margin-bottom: 15px;
+}
+
+article {
+    padding: 15px;
+    border-left: 4px solid #2563eb;
+    margin-bottom: 20px;
+    background-color: #f8fafc;
+}
+
+/* Links and buttons */
+a {
+    color: #2563eb;
+}
+
+button {
+    background-color: #2563eb;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #1d4ed8;
+}
+
+/* Contact form */
+form div {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+input,
+textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #999;
+    border-radius: 5px;
+    font-size: 16px;
+    font-family: inherit;
+}
+
+input:focus,
+textarea:focus,
+button:focus-visible,
+a:focus-visible {
+    outline: 3px solid #f59e0b;
+    outline-offset: 3px;
+}
+
+/* Footer */
+footer {
+    background-color: #1e293b;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+/* Mobile responsive design */
+@media (max-width: 600px) {
+    main {
+        margin: 20px auto;
+        padding: 15px;
+    }
+
+    section {
+        padding: 20px;
+    }
+
+    nav ul {
+        gap: 10px;
+    }
+}
+
+/* Responsive project grid */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 32px;
+}
+
+/* Project card */
+.project-card {
+    background: var(--card-background);
+    padding: 24px;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    transition: transform var(--transition-speed);
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+}
+
+/* Tablet screens */
+@media (max-width: 900px) {
+    .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Mobile screens */
+@media (max-width: 600px) {
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .project-card {
+        padding: 16px;
+    }
+}
+
+/* Flexbox navigation layout */
+nav ul {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    flex-wrap: wrap;
+}
+
+/* Flexbox for buttons */
+.button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+/* Dark theme */
+[data-theme="dark"] {
+    --background-color: #0f172a;
+    --card-background: #1e293b;
+    --text-color: #f1f5f9;
+    --muted-text: #cbd5e1;
+    --border-color: #334155;
+    --primary-color: #60a5fa;
+    --secondary-color: #3b82f6;
+}
+
+/* Dark theme card text */
+[data-theme="dark"] .card,
+[data-theme="dark"] .project-card,
+[data-theme="dark"] section {
+    color: var(--text-color);
+    background-color: var(--card-background);
+}
+
+/* Dark theme paragraphs */
+[data-theme="dark"] p,
+[data-theme="dark"] li {
+    color: var(--muted-text);
+}
+
+/* Apply theme variables */
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    transition:
+        background-color var(--transition-speed),
+        color var(--transition-speed);
+}
+
+/* Theme switcher button */
+#theme-toggle {
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color var(--transition-speed);
+}
+
+#theme-toggle:hover {
+    background: var(--secondary-color);
+}
+
+#theme-toggle:focus-visible {
+    outline: 3px solid var(--text-color);
+    outline-offset: 3px;
+}
+
+[data-theme="dark"] h1,
+[data-theme="dark"] h2,
+[data-theme="dark"] h3 {
+    color: var(--text-color);
+}
+
+/* Fix project cards in dark mode */
+[data-theme="dark"] .projects-grid,
+[data-theme="dark"] .projects-grid article,
+[data-theme="dark"] .projects-grid .project-card {
+    background-color: var(--card-background);
+    color: var(--text-color);
+}
+
+[data-theme="dark"] .projects-grid h2,
+[data-theme="dark"] .projects-grid h3 {
+    color: var(--text-color);
+}
+
+[data-theme="dark"] .projects-grid p {
+    color: var(--muted-text);
+}
+
+/* Projects section layout */
+.projects-section {
+    padding: 32px;
+}
+
+.projects-section h2 {
+    margin-bottom: 24px;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+/* Project cards */
+.project-card {
+    background-color: var(--card-background);
+    color: var(--text-color);
+    padding: 24px;
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* Dark theme project cards */
+[data-theme="dark"] .project-card {
+    background-color: var(--card-background);
+    color: var(--text-color);
+}
+
+[data-theme="dark"] .project-card h3 {
+    color: var(--text-color);
+}
+
+[data-theme="dark"] .project-card p {
+    color: var(--muted-text);
+}
+
+/* Responsive project layout */
+@media (max-width: 900px) {
+    .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Responsive navigation */
+nav ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
+    flex-wrap: wrap;
+    padding: 16px;
+    list-style: none;
+}
+
+nav a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: var(--primary-color);
+}
+
+/* Mobile navigation */
+@media (max-width: 600px) {
+    nav ul {
+        gap: 12px;
+        padding: 12px;
+    }
+
+    nav a,
+    #theme-toggle {
+        font-size: 14px;
+    }
+
+    #theme-toggle {
+        padding: 8px 12px;
+    }
+}
